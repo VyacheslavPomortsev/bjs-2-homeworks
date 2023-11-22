@@ -2,7 +2,7 @@ function getArrayParams(...arr) {
 	let min = Infinity;
 	let max = -Infinity;
 	let sum = 0;
-	for (i = 0; i < arr.length; i++) {
+	for (let i = 0; i < arr.length; i++) {
 		max = Math.max(max, arr[i]);
 		min = Math.min(min, arr[i]);
 		sum += arr[i];
@@ -20,7 +20,7 @@ function summElementsWorker(...arr) {
     if (arr.length === 0) {
             return 0;
     }
-    for (i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++){
         sum += arr[i];
     }
     return sum;
@@ -29,10 +29,11 @@ function summElementsWorker(...arr) {
 function differenceMaxMinWorker(...arr) {
     max = -Infinity;
     min = Infinity;
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (arr[i] > max) {
             max = arr[i];
-            } else {
+            }
+        if (arr[i] < min) {
                 min = arr[i];
             }
     }
@@ -48,14 +49,14 @@ function differenceEvenOddWorker(...arr) {
     if (arr.length === 0) {
             return 0;
     }
-    for (i = 0; i < arr.length; i++) {
-        if (i % 2 === 0) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
             sumEvenElement += arr[i];
         } else {
             sumOddElement += arr[i];
         }
     }
-    return sumOddElement - sumEvenElement;
+    return sumEvenElement - sumOddElement;
 }
 
 function averageEvenElementsWorker(...arr) {
@@ -64,7 +65,7 @@ function averageEvenElementsWorker(...arr) {
     if (arr.length === 0) {
         return 0;
     }
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (arr[i] % 2 === 0) {
             sumEvenElement += arr[i];
             countEvenElement++;
@@ -76,11 +77,12 @@ function averageEvenElementsWorker(...arr) {
 
 function makeWork (arrOfArr, func) {
     let maxWorkerResult = -Infinity;
-    for (i = 0; i < arrOfArr.length; i++) {
+    let arr = [];
+    for (let i = 0; i < arrOfArr.length; i++) {
         const result = func(...arr);
-    };
-    if (result > maxWorkerResult) {
-        result = maxWorkerResult;
-    }
-    return maxWorkerResult;
-}
+        if (result > maxWorkerResult) {
+            maxWorkerResult = result;
+            }
+        }
+        return maxWorkerResult;
+};
