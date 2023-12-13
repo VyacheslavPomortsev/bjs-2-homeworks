@@ -24,7 +24,7 @@ class Triangle {
     this.b = b;
     this.c = c;
   }
-}
+
 
   get perimeter() {
     return this.a + this.b + this.c;
@@ -34,7 +34,7 @@ class Triangle {
     const p = this.perimeter / 2;
     return +Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)).toFixed(3);
   }
-
+}
 
 function getTriangle(a, b, c) {
   try {
